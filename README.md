@@ -1,4 +1,4 @@
-sensorcheck
+algorithms-experiments
 ===================
 
-An application classify sensor beased on their readings
+A repo to play around with various algorithms.

@@ -61,9 +61,4 @@ public class TreeNode<T> {
         }
         return false;
     }
-
-    private boolean breadthFirstSearchInternal(T elem, Queue<T> toVisit) {
-
-        return false;
-    }
 }

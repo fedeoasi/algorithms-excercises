@@ -1,7 +1,8 @@
 package com.github.fedeoasi.sorting;
 
-public class ComparisonCountingSort {
-    public static int[] sort(int[] a) {
+public class ComparisonCountingSort implements Sort {
+    @Override
+    public int[] sort(int[] a) {
         int[] s = new int[a.length];
         int[] count = new int[a.length];
         for(int i = 0; i < a.length - 1; i++) {

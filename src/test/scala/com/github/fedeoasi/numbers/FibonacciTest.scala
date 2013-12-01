@@ -2,7 +2,6 @@ package com.github.fedeoasi.numbers
 
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.FunSpec
-import com.github.fedeoasi.numbers.Fibonacci
 
 class FibonacciTest extends FunSpec with ShouldMatchers {
   import Fibonacci._

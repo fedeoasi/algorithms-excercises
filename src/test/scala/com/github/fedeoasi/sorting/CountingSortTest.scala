@@ -2,7 +2,6 @@ package com.github.fedeoasi.sorting
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
-import com.github.fedeoasi.sorting.ComparisonCountingSort
 
 class CountingSortTest extends FunSpec with ShouldMatchers {
   import ComparisonCountingSort._

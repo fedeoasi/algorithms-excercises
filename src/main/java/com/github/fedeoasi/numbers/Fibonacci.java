@@ -1,4 +1,4 @@
-package com.github.fedeoasi;
+package com.github.fedeoasi.numbers;
 
 public class Fibonacci {
     public static int fibonacci(int n) {

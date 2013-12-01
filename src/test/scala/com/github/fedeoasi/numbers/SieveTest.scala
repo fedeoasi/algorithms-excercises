@@ -1,9 +1,10 @@
-package com.github.fedeoasi
+package com.github.fedeoasi.numbers
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
 import scala.collection.JavaConverters
 import java.util
+import com.github.fedeoasi.numbers.ErathostenesSieve
 
 class SieveTest extends FunSpec with ShouldMatchers {
   import ErathostenesSieve._

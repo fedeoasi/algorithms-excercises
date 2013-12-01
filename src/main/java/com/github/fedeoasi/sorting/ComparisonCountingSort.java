@@ -1,4 +1,4 @@
-package com.github.fedeoasi;
+package com.github.fedeoasi.sorting;
 
 public class ComparisonCountingSort {
     public static int[] sort(int[] a) {

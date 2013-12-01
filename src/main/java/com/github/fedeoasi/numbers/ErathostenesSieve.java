@@ -1,4 +1,4 @@
-package com.github.fedeoasi;
+package com.github.fedeoasi.numbers;
 
 import java.util.ArrayList;
 import java.util.List;

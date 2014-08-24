@@ -18,6 +18,10 @@ class RotationTest extends FunSpec with ShouldMatchers {
       isRotatedBy("onamaz", "amazon", 2) should be(true)
     }
 
+    it ("should detect rotation by 2 backwards when asking for 3") {
+      isRotatedBy("azonam", "amazon", 3) should be(false)
+    }
+
     it ("should not detect a string that wasn't rotated") {
       isRotatedBy("zonama", "amazon", 2) should be(false)
     }

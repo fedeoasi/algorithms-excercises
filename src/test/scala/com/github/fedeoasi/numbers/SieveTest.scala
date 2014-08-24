@@ -30,10 +30,10 @@ class SieveTest extends FunSpec with ShouldMatchers {
     )
   }
 
-  it("times the execution for the first million primes") {
-    val start = System.currentTimeMillis()
-    primeNumbersUpTo(1000000)
-    val stop = System.currentTimeMillis()
-    println(s"primeNumbersUpTo(1000000) elapsed: ${(stop - start) / 1000} seconds")
-  }
+//  it("times the execution for the first million primes") {
+//    val start = System.currentTimeMillis()
+//    primeNumbersUpTo(1000000)
+//    val stop = System.currentTimeMillis()
+//    println(s"primeNumbersUpTo(1000000) elapsed: ${(stop - start) / 1000} seconds")
+//  }
 }

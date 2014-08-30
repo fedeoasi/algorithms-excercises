@@ -108,7 +108,7 @@ public class Trie {
 
         @Override
         public String toString() {
-            return character + "";
+            return character == null ? "root" : character + "";
         }
 
         public TrieNode nodeForChar(char character) {

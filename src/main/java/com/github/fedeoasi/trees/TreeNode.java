@@ -7,6 +7,7 @@ public class TreeNode<T> {
     private T value;
     private TreeNode<T> left;
     private TreeNode<T> right;
+    private TreeNode<T> parent;
 
     public TreeNode(T value) {
         this.value = value;
@@ -26,6 +27,7 @@ public class TreeNode<T> {
 
     public void setLeft(TreeNode<T> left) {
         this.left = left;
+        left.setParent(this);
     }
 
     public TreeNode<T> getRight() {
@@ -34,6 +36,15 @@ public class TreeNode<T> {
 
     public void setRight(TreeNode<T> right) {
         this.right = right;
+        right.setParent(this);
+    }
+
+    public TreeNode<T> getParent() {
+        return parent;
+    }
+
+    public void setParent(TreeNode<T> parent) {
+        this.parent = parent;
     }
 
     public boolean depthFirstSearch(T elem) {

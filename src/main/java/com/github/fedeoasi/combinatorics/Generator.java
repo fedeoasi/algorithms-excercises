@@ -17,9 +17,8 @@ public class Generator {
         }
         List<List<Integer>> result = new ArrayList<>();
         List<List<Integer>> smallerPerm = permutations(n - 1);
-        for(int i = 0; i < smallerPerm.size(); i++) {
-            List<Integer> toDecorate = smallerPerm.get(i);
-            for(int j = toDecorate.size(); j >= 0; j--) {
+        for (List<Integer> toDecorate : smallerPerm) {
+            for (int j = toDecorate.size(); j >= 0; j--) {
                 result.add(decorateList(toDecorate, n, j));
             }
         }
@@ -36,7 +35,7 @@ public class Generator {
             }
             result.add(toDecorate.get(i));
         }
-        if(added == false) {
+        if(!added) {
             result.add(value);
         }
         return result;

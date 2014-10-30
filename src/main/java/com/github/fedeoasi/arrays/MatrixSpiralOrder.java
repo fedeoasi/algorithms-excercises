@@ -7,6 +7,8 @@ public class MatrixSpiralOrder {
             return new int[0];
         }
         int w = matrix[0].length;
+        //This code only works with n*n matrices
+        assert(w == h);
         int resultSize = h * w;
         int[] result = new int[resultSize];
 

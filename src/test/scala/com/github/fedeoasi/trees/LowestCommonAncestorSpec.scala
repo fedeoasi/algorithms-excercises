@@ -2,9 +2,9 @@ package com.github.fedeoasi.trees
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
-import LeastCommonAncestor._
+import LowestCommonAncestor._
 
-class LeastCommonAncestorSpec extends FunSpec with ShouldMatchers {
+class LowestCommonAncestorSpec extends FunSpec with ShouldMatchers {
   describe("LeastCommonAncestor") {
     it("should find the root as common ancestor in a simple tree") {
       val root = new TreeNode(2)

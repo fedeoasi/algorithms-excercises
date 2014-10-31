@@ -27,7 +27,9 @@ public class TreeNode<T> {
 
     public void setLeft(TreeNode<T> left) {
         this.left = left;
-        left.setParent(this);
+        if(left != null) {
+            left.setParent(this);
+        }
     }
 
     public TreeNode<T> getRight() {
@@ -36,7 +38,9 @@ public class TreeNode<T> {
 
     public void setRight(TreeNode<T> right) {
         this.right = right;
-        right.setParent(this);
+        if(right != null) {
+            right.setParent(this);
+        }
     }
 
     public TreeNode<T> getParent() {

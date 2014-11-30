@@ -19,7 +19,7 @@ object HackerRankTemplate {
     def readInt(input: Iterator[String]): Int = input.take(1).next().toInt
 
     def readTwoInts(input: Iterator[String]): (Int, Int) = {
-      val numbers = input.take(1).next().split(" ").map(_.toInt).toArray
+      val numbers = readArray(input)
       (numbers(0), numbers(1))
     }
   }

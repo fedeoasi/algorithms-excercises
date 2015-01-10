@@ -6,7 +6,7 @@ object HackerRankTemplate {
 
     def main(args: Array[String]) {
       val lines = io.Source.stdin.getLines()
-      val T = lines.take(1).next().toInt
+      val T = readInt(lines)
       1 to T foreach { i =>
         println(computeSolution())
       }

@@ -1,9 +1,9 @@
 import sbt._
 import Keys._
 
-object SensorCheckBuild extends Build {
+object AlgorithmsExercisesBuild extends Build {
   val Organization = "com.github.fedeoasi"
-  val Name = "Sensor Check"
+  val Name = "Algorithms Exercises"
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.10.4"
 

@@ -13,7 +13,7 @@ object HackerRankTemplate {
     }
 
     def readArray(input: Iterator[String]): Array[Int] = {
-      input.take(1).next().split(" ").map(_.toInt).toArray
+      input.take(1).next().split(" ").map(_.toInt)
     }
 
     def readInt(input: Iterator[String]): Int = input.take(1).next().toInt

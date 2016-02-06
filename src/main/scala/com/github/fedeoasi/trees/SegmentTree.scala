@@ -1,10 +1,7 @@
 package com.github.fedeoasi.trees
 
 trait SegmentTree {
-  protected def low: Int
-  protected def high: Int
   def min: Int
-
   def min(l: Int, h: Int): Option[Int]
 }
 
@@ -25,24 +22,22 @@ object SegmentTree {
     build(0, numbers.size - 1)
   }
 
-  class Leaf (val low: Int, val min: Int) extends SegmentTree {
-    override protected def high: Int = low
-
+  private[trees] class Leaf (val index: Int, val min: Int) extends SegmentTree {
     override def min(l: Int, h: Int): Option[Int] = {
-      if(l <= low && h >= low) Some(min) else None
+      if(l <= index && h >= index) Some(min) else None
     }
   }
 
-  object Leaf {
+  private[trees] object Leaf {
     def apply(low: Int, min: Int): Leaf = new Leaf(low, min)
   }
 
 
-  case class Node(low: Int,
-                  high: Int,
-                  min: Int,
-                  left: SegmentTree,
-                  right: SegmentTree) extends SegmentTree {
+  private[trees] case class Node(low: Int,
+                                 high: Int,
+                                 min: Int,
+                                 left: SegmentTree,
+                                 right: SegmentTree) extends SegmentTree {
 
     override def min(l: Int, h: Int): Option[Int] = {
       if (l > high || h < low) {

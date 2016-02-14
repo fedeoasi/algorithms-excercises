@@ -1,9 +1,9 @@
 package com.github.fedeoasi.combinatorics
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
-class BinomialCoefficientsSpec extends FunSpec with ShouldMatchers {
+class BinomialCoefficientsSpec extends FunSpec with Matchers {
   describe("Binomial Coefficients") {
     it("iterates through the coefficients for n = 1") {
       assertCoefficients(1, List(1, 1))
@@ -23,6 +23,6 @@ class BinomialCoefficientsSpec extends FunSpec with ShouldMatchers {
   }
 
   private def assertCoefficients(n: Int, result: List[Int]): Unit = {
-    new BinomialCoefficients(n).toList should be(result)
+    new BinomialCoefficients(n).toList shouldBe result
   }
 }

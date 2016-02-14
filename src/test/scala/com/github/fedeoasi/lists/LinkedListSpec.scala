@@ -1,26 +1,26 @@
 package com.github.fedeoasi.lists
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
-class LinkedListSpec extends FunSpec with ShouldMatchers {
+class LinkedListSpec extends FunSpec with Matchers {
   import LinkedLists._
 
   describe("Linked List") {
     describe("Cycles") {
       it("returns false on an empty node") {
-        hasCycle(null) should be(false)
+        hasCycle(null) shouldBe false
       }
 
       it("returns false on an single node") {
-        hasCycle(new ListNode(3)) should be(false)
+        hasCycle(new ListNode(3)) shouldBe false
       }
 
       it("returns false when there is no cycle (even)") {
         val n1 = new ListNode(3)
         val n2 = new ListNode(4)
         n1.setNext(n2)
-        hasCycle(n1) should be(false)
+        hasCycle(n1) shouldBe false
       }
 
       it("returns false when there is no cycle (odd)") {
@@ -29,7 +29,7 @@ class LinkedListSpec extends FunSpec with ShouldMatchers {
         val n3 = new ListNode(5)
         n1.setNext(n2)
         n2.setNext(n3)
-        hasCycle(n1) should be(false)
+        hasCycle(n1) shouldBe false
       }
 
       it("returns true when there is a cycle (even)") {
@@ -39,7 +39,7 @@ class LinkedListSpec extends FunSpec with ShouldMatchers {
         n1.setNext(n2)
         n2.setNext(n3)
         n3.setNext(n1)
-        hasCycle(n1) should be(true)
+        hasCycle(n1) shouldBe true
       }
 
       it("returns true when there is a cycle (odd)") {
@@ -51,7 +51,7 @@ class LinkedListSpec extends FunSpec with ShouldMatchers {
         n2.setNext(n3)
         n3.setNext(n4)
         n4.setNext(n1)
-        hasCycle(n1) should be(true)
+        hasCycle(n1) shouldBe true
       }
     }
   }

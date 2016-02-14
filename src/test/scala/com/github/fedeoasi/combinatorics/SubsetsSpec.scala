@@ -1,22 +1,22 @@
 package com.github.fedeoasi.combinatorics
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.JavaConverters._
 
-trait SubsetsSpec extends FunSpec with ShouldMatchers {
+trait SubsetsSpec extends FunSpec with Matchers {
   def enumerator: SubsetEnumerator
 
   describe("Subset Generation") {
     it("should generate an empty subset set for an empty string") {
       val subsets = enumerator.enumerateSubsets("")
-      subsets.size() should be(0)
+      subsets.size() shouldBe 0
     }
 
     it("subset of one element is itself") {
       val subsets = enumerator.enumerateSubsets("a").toArray
-      subsets.size should be(1)
-      subsets(0) should be("a")
+      subsets.size shouldBe 1
+      subsets(0) shouldBe "a"
     }
 
     it("generates subsets for size 2") {
@@ -40,8 +40,8 @@ trait SubsetsSpec extends FunSpec with ShouldMatchers {
   }
 
   private def testContains(actual: Array[String], expected: Array[String]): Unit = {
-    actual.size should be(expected.size)
-    actual.sorted should be (expected.sorted)
+    actual.size shouldBe expected.size
+    actual.sorted shouldBe expected.sorted
   }
 }
 

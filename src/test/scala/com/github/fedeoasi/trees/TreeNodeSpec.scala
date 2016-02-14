@@ -1,9 +1,9 @@
 package com.github.fedeoasi.trees
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
-class TreeNodeSpec extends FunSpec with ShouldMatchers {
+class TreeNodeSpec extends FunSpec with Matchers {
   it("should search in a single node") {
     val tree = new TreeNode[Int](3)
     assertSearch(tree, 4, false)
@@ -56,7 +56,7 @@ class TreeNodeSpec extends FunSpec with ShouldMatchers {
   }
 
   def assertSearch(tree: TreeNode[Int], value: Int, assertion: Boolean) {
-    tree.depthFirstSearch(value) should be(assertion)
-    tree.breadthFirstSearch(value) should be(assertion)
+    tree.depthFirstSearch(value) shouldBe assertion
+    tree.breadthFirstSearch(value) shouldBe assertion
   }
 }

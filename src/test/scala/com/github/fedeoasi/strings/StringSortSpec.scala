@@ -1,34 +1,34 @@
 package com.github.fedeoasi.strings
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
-class StringSortSpec extends FunSpec with ShouldMatchers {
+class StringSortSpec extends FunSpec with Matchers {
   import StringSort._
 
   describe("String sorting") {
     it("should sort an empty list") {
-      sort("") should be("")
+      sort("") shouldBe ""
     }
 
     it("should sort a single character") {
-      sort("l") should be("l")
+      sort("l") shouldBe "l"
     }
 
     it("should sort a simple word") {
-      sort("home") should be("ehmo")
+      sort("home") shouldBe "ehmo"
     }
 
     it("should sort a word with duplicate letters") {
-      sort("hello") should be("ehllo")
+      sort("hello") shouldBe "ehllo"
     }
 
     it("should sort a word with numbers") {
-      sort("hello123") should be("123ehllo")
+      sort("hello123") shouldBe "123ehllo"
     }
 
     it("should sort a phrase with spaces") {
-      sort("hello 123") should be(" 123ehllo")
+      sort("hello 123") shouldBe " 123ehllo"
     }
   }
 }

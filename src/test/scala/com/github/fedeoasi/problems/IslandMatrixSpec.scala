@@ -1,6 +1,6 @@
 package com.github.fedeoasi.problems
 
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import org.scalatest.FunSpec
 
 /**
@@ -12,33 +12,33 @@ import org.scalatest.FunSpec
  * He is allowed to move n steps on the island (along the matrix).
  * What is the probability that he is alive after he walks n steps on the island?
  */
-class IslandMatrixSpec extends FunSpec with ShouldMatchers {
+class IslandMatrixSpec extends FunSpec with Matchers {
   it("should compute the probability for a step in a 1x1 matrix") {
     val island = new IslandMatrix(1, 1)
-    island.probabilityOfAlive(0, 0, 1) should be(0.0f)
+    island.probabilityOfAlive(0, 0, 1) shouldBe 0.0f
   }
 
   it("should compute the probability for a step in a 2x2 matrix") {
     val island = new IslandMatrix(2, 2)
-    island.probabilityOfAlive(0, 0, 1) should be(0.5f)
-    island.probabilityOfAlive(0, 1, 1) should be(0.5f)
-    island.probabilityOfAlive(1, 0, 1) should be(0.5f)
-    island.probabilityOfAlive(1, 1, 1) should be(0.5f)
+    island.probabilityOfAlive(0, 0, 1) shouldBe 0.5f
+    island.probabilityOfAlive(0, 1, 1) shouldBe 0.5f
+    island.probabilityOfAlive(1, 0, 1) shouldBe 0.5f
+    island.probabilityOfAlive(1, 1, 1) shouldBe 0.5f
   }
 
   it("should compute the probability for two steps in a 2x2 matrix") {
     val island = new IslandMatrix(2, 2)
-    island.probabilityOfAlive(0, 0, 2) should be(0.25f)
-    island.probabilityOfAlive(0, 1, 2) should be(0.25f)
-    island.probabilityOfAlive(1, 0, 2) should be(0.25f)
-    island.probabilityOfAlive(1, 1, 2) should be(0.25f)
+    island.probabilityOfAlive(0, 0, 2) shouldBe 0.25f
+    island.probabilityOfAlive(0, 1, 2) shouldBe 0.25f
+    island.probabilityOfAlive(1, 0, 2) shouldBe 0.25f
+    island.probabilityOfAlive(1, 1, 2) shouldBe 0.25f
   }
 
   it("should compute the probability for three steps in a 2x2 matrix") {
     val island = new IslandMatrix(2, 2)
-    island.probabilityOfAlive(0, 0, 3) should be(0.125f)
-    island.probabilityOfAlive(0, 1, 3) should be(0.125f)
-    island.probabilityOfAlive(1, 0, 3) should be(0.125f)
-    island.probabilityOfAlive(1, 1, 3) should be(0.125f)
+    island.probabilityOfAlive(0, 0, 3) shouldBe 0.125f
+    island.probabilityOfAlive(0, 1, 3) shouldBe 0.125f
+    island.probabilityOfAlive(1, 0, 3) shouldBe 0.125f
+    island.probabilityOfAlive(1, 1, 3) shouldBe 0.125f
   }
 }

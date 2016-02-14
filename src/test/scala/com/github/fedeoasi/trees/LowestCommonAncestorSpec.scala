@@ -1,10 +1,10 @@
 package com.github.fedeoasi.trees
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import LowestCommonAncestor._
 
-class LowestCommonAncestorSpec extends FunSpec with ShouldMatchers {
+class LowestCommonAncestorSpec extends FunSpec with Matchers {
   describe("LeastCommonAncestor") {
     it("should find the root as common ancestor in a simple tree") {
       val root = new TreeNode(2)
@@ -12,12 +12,12 @@ class LowestCommonAncestorSpec extends FunSpec with ShouldMatchers {
       val right = new TreeNode(3)
       root.setLeft(left)
       root.setRight(right)
-      leastCommonAncestor(root, left) should be (root)
-      leastCommonAncestor(right, left) should be (root)
-      leastCommonAncestor(root, right) should be (root)
-      leastCommonAncestor(left, root) should be (root)
-      leastCommonAncestor(left, right) should be (root)
-      leastCommonAncestor(right, root) should be (root)
+      leastCommonAncestor(root, left) shouldBe root
+      leastCommonAncestor(right, left) shouldBe root
+      leastCommonAncestor(root, right) shouldBe root
+      leastCommonAncestor(left, root) shouldBe root
+      leastCommonAncestor(left, right) shouldBe root
+      leastCommonAncestor(right, root) shouldBe root
     }
 
     it("should find the common ancestor in a complicated tree") {
@@ -45,11 +45,11 @@ class LowestCommonAncestorSpec extends FunSpec with ShouldMatchers {
       eight.setLeft(six)
       eight.setRight(ten)
       ten.setRight(eleven)
-      leastCommonAncestor(two, four) should be (three)
-      leastCommonAncestor(six, four) should be (five)
-      leastCommonAncestor(eight, eleven) should be (eight)
-      leastCommonAncestor(ten, eleven) should be (ten)
-      leastCommonAncestor(one, ten) should be (five)
+      leastCommonAncestor(two, four) shouldBe three
+      leastCommonAncestor(six, four) shouldBe five
+      leastCommonAncestor(eight, eleven) shouldBe eight
+      leastCommonAncestor(ten, eleven) shouldBe ten
+      leastCommonAncestor(one, ten) shouldBe five
     }
   }
 }

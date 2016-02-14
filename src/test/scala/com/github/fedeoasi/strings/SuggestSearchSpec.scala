@@ -1,18 +1,18 @@
 package com.github.fedeoasi.strings
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.JavaConverters._
 import scala.io.Source
 
-class SuggestSearchSpec extends FunSpec with ShouldMatchers {
+class SuggestSearchSpec extends FunSpec with Matchers {
   val emptyList = List.empty[String].asJava
 
   describe("Trie based suggest search") {
     it("should load an empty dictionary and find nothing") {
       val suggester = new TrieSuggestSearch
       suggester.loadDictionary(emptyList)
-      suggester.suggest("he") should be (emptyList)
+      suggester.suggest("he") shouldBe emptyList
     }
 
     describe("Single string dictionary") {
@@ -21,18 +21,18 @@ class SuggestSearchSpec extends FunSpec with ShouldMatchers {
       suggester.loadDictionary(singleStringDictionary)
 
       it("should suggest the string") {
-        suggester.suggest("hello") should be (List("hello").asJava)
+        suggester.suggest("hello") shouldBe List("hello").asJava
       }
 
       it("should suggest the string by a substring") {
-        suggester.suggest("h") should be (List("hello").asJava)
-        suggester.suggest("he") should be (List("hello").asJava)
-        suggester.suggest("hel") should be (List("hello").asJava)
-        suggester.suggest("hell") should be (List("hello").asJava)
+        suggester.suggest("h") shouldBe List("hello").asJava
+        suggester.suggest("he") shouldBe List("hello").asJava
+        suggester.suggest("hel") shouldBe List("hello").asJava
+        suggester.suggest("hell") shouldBe List("hello").asJava
       }
 
       it("should not suggest another string") {
-        suggester.suggest("world") should be (emptyList)
+        suggester.suggest("world") shouldBe emptyList
       }
     }
 
@@ -42,16 +42,16 @@ class SuggestSearchSpec extends FunSpec with ShouldMatchers {
       suggester.loadDictionary(simpleDictionary)
 
       it("should suggest words in the dictionary") {
-        suggester.suggest("hello") should be (List("hello").asJava)
-        suggester.suggest("world") should be (List("world").asJava)
-        suggester.suggest("worm") should be (List("worm").asJava)
-        suggester.suggest("wolf") should be (List("wolf").asJava)
+        suggester.suggest("hello") shouldBe List("hello").asJava
+        suggester.suggest("world") shouldBe List("world").asJava
+        suggester.suggest("worm") shouldBe List("worm").asJava
+        suggester.suggest("wolf") shouldBe List("wolf").asJava
       }
 
       it("should suggest multiple choices by prefix") {
-        suggester.suggest("wo") should be (List("world", "worm", "wolf").asJava)
-        suggester.suggest("wor") should be (List("world", "worm").asJava)
-        suggester.suggest("wol") should be (List("wolf").asJava)
+        suggester.suggest("wo") shouldBe List("world", "worm", "wolf").asJava
+        suggester.suggest("wor") shouldBe List("world", "worm").asJava
+        suggester.suggest("wol") shouldBe List("wolf").asJava
       }
     }
 
@@ -62,9 +62,7 @@ class SuggestSearchSpec extends FunSpec with ShouldMatchers {
       suggester.loadDictionary(dictionary)
 
       it("should suggest words in the dictionary") {
-        suggester.suggest("be") should be (
-          List("be", "because", "been", "before", "below", "between").asJava
-        )
+        suggester.suggest("be") shouldBe List("be", "because", "been", "before", "below", "between").asJava
       }
     }
   }

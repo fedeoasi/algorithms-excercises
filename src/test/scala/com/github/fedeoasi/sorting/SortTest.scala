@@ -1,15 +1,15 @@
 package com.github.fedeoasi.sorting
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
-class SortTest extends FunSpec with ShouldMatchers {
+class SortTest extends FunSpec with Matchers {
   val compSort = new ComparisonCountingSort
   val mergeSort = new MergeSort
 
   def assertSorted(a: Array[Int], sorted: Array[Int]) = {
-    compSort.sort(a) should be(sorted)
-    mergeSort.sort(a) should be(sorted)
+    compSort.sort(a) shouldBe sorted
+    mergeSort.sort(a) shouldBe sorted
   }
 
   it("should sort an empty array") {

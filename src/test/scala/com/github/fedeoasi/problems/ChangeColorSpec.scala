@@ -1,7 +1,7 @@
 package com.github.fedeoasi.problems
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
 /**
  * Problem:
@@ -10,7 +10,7 @@ import org.scalatest.matchers.ShouldMatchers
  * Then that pixel & all the adjacent pixels with same color should change the color to the second color.
  * adjacent = vertically or horizontally above or blow.
  */
-class ChangeColorSpec extends FunSpec with ShouldMatchers {
+class ChangeColorSpec extends FunSpec with Matchers {
   it("should change the color of a single 1 in the middle") {
     val cc = new ChangeColor(
       Array(
@@ -20,7 +20,7 @@ class ChangeColorSpec extends FunSpec with ShouldMatchers {
       )
     )
     cc.changeColor(1, 1)
-    cc.getMatrix should be{
+    cc.getMatrix shouldBe{
       Array(
         Array(0, 0, 0),
         Array(0, 0, 0),
@@ -38,7 +38,7 @@ class ChangeColorSpec extends FunSpec with ShouldMatchers {
       )
     )
     cc.changeColor(0, 0)
-    cc. getMatrix should be{
+    cc. getMatrix shouldBe{
       Array(
         Array(1, 1, 1),
         Array(1, 1, 1),
@@ -56,7 +56,7 @@ class ChangeColorSpec extends FunSpec with ShouldMatchers {
       )
     )
     cc.changeColor(2, 1)
-    cc.getMatrix should be{
+    cc.getMatrix shouldBe{
       Array(
         Array(1, 1, 1),
         Array(1, 1, 1),

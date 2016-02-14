@@ -1,11 +1,11 @@
 package com.github.fedeoasi.sorting
 
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.JavaConverters._
 import java.util
 
-class MergeSortedListsSpec extends FunSpec with ShouldMatchers {
+class MergeSortedListsSpec extends FunSpec with Matchers {
   import MergeSortedLists._
 
   describe("Merge k sorted lists") {
@@ -16,7 +16,7 @@ class MergeSortedListsSpec extends FunSpec with ShouldMatchers {
     it("should merge a single list") {
       val sortedList: util.List[Integer] = List(1, 2, 4, 5)
       val lists = List[util.List[Integer]](sortedList)
-      mergeSortedLists(lists.asJava) should be(sortedList)
+      mergeSortedLists(lists.asJava) shouldBe sortedList
     }
 
     it("should merge multiple lists with no duplicates") {
@@ -25,7 +25,7 @@ class MergeSortedListsSpec extends FunSpec with ShouldMatchers {
         List(2, 3, 6, 7)
       )
       val expected = List(1, 2, 3, 4, 5, 6, 7, 8)
-      mergeSortedLists(lists.asJava) should be(toJavaIntList(expected))
+      mergeSortedLists(lists.asJava) shouldBe toJavaIntList(expected)
     }
 
     it("should merge multiple lists with duplicates") {
@@ -34,7 +34,7 @@ class MergeSortedListsSpec extends FunSpec with ShouldMatchers {
         List(2, 3, 6, 7, 8)
       )
       val expected = List(1, 2, 3, 4, 5, 6, 7, 8, 8)
-      mergeSortedLists(lists.asJava) should be(toJavaIntList(expected))
+      mergeSortedLists(lists.asJava) shouldBe toJavaIntList(expected)
     }
 
     it("should merge multiple lists") {
@@ -44,7 +44,7 @@ class MergeSortedListsSpec extends FunSpec with ShouldMatchers {
         List(3, 4, 6, 7)
       )
       val expected = List(1, 2, 3, 4, 5, 6, 7, 8, 8)
-      mergeSortedLists(lists.asJava) should be(toJavaIntList(expected))
+      mergeSortedLists(lists.asJava) shouldBe toJavaIntList(expected)
     }
 
     implicit def toJavaIntList(list: List[Int]): util.List[Integer] = {

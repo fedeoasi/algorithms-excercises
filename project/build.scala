@@ -18,7 +18,7 @@ object AlgorithmsExercisesBuild extends Build {
       scalaVersion := ScalaVersion,
       resolvers += Classpaths.typesafeReleases,
       libraryDependencies ++= Seq(
-        "org.scalatest" % "scalatest_2.10" % "1.9.1" % "test"
+        "org.scalatest" %% "scalatest" % "2.2.6" % "test"
       )
     )
   )

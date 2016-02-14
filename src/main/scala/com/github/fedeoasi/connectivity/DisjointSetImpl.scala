@@ -12,10 +12,10 @@ class DisjointSetImpl(n: Int) extends DisjointSet {
     if (pRoot != qRoot) {
       if (size(pRoot) >= size(qRoot)) {
         a(qRoot) = pRoot
-        size(qRoot) += size(pRoot)
+        size(pRoot) += size(qRoot)
       } else {
         a(pRoot) = qRoot
-        size(pRoot) += size(qRoot)
+        size(qRoot) += size(pRoot)
       }
     }
   }
@@ -23,6 +23,8 @@ class DisjointSetImpl(n: Int) extends DisjointSet {
   override def connected(p: Int, q: Int): Boolean = {
     root(p) == root(q)
   }
+
+  def componentSize(p: Int): Int = size(root(p))
 
   @tailrec
   private def root(x: Int): Int = {

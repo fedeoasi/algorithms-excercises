@@ -1,11 +1,11 @@
 package com.github.fedeoasi.graphs
 
-class Graph(val size: Int) {
-  require(size >= 0)
+class Graph(val nodeCount: Int) {
+  require(nodeCount >= 0)
 
   private var edgeCount = 0
 
-  private val adjacencyLists = Array.fill(size)(List.empty[Int])
+  private val adjacencyLists = Array.fill(nodeCount)(List.empty[Int])
 
   def addEdge(from: Int, to: Int): Unit = {
     validateNode(from)
@@ -24,7 +24,7 @@ class Graph(val size: Int) {
   def edgeSize: Int = edgeCount
 
   private def validateNode(n: Int) = {
-    require(0 <= n && n < size)
+    require(0 <= n && n < nodeCount)
   }
 }
 

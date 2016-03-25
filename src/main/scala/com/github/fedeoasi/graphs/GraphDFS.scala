@@ -4,7 +4,7 @@ import scala.collection.mutable
 
 class GraphDFS(graph: Graph, node: Int) {
   def dfs(): DFSResult = {
-    val marked = Array.fill(graph.size)(false)
+    val marked = Array.fill(graph.nodeCount)(false)
     var visited = List.empty[Int]
     val stack = new mutable.Stack[Int]()
     stack.push(node)

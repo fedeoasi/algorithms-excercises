@@ -1,11 +1,26 @@
 package com.github.fedeoasi.graphs
 
-class Graph(val nodeCount: Int) {
-  require(nodeCount >= 0)
+trait Graph {
+  def nodeSize: Int
+  def edgeSize: Int
+  def addEdge(from: Int, to: Int): Unit
+  def adj(i : Int): Iterable[Int]
+}
+
+object Graph {
+  def apply(size: Int, edges: (Int, Int)*): Graph = {
+    val g = new GraphImpl(size)
+    edges.foreach { case (from, to) => g.addEdge(from, to) }
+    g
+  }
+}
+
+private[graphs] class GraphImpl(val nodeSize: Int) extends Graph {
+  require(nodeSize >= 0)
 
   private var edgeCount = 0
 
-  private val adjacencyLists = Array.fill(nodeCount)(List.empty[Int])
+  private val adjacencyLists = Array.fill(nodeSize)(List.empty[Int])
 
   def addEdge(from: Int, to: Int): Unit = {
     validateNode(from)
@@ -24,14 +39,6 @@ class Graph(val nodeCount: Int) {
   def edgeSize: Int = edgeCount
 
   private def validateNode(n: Int) = {
-    require(0 <= n && n < nodeCount)
-  }
-}
-
-object Graph {
-  def apply(size: Int, edges: (Int, Int)*): Graph = {
-    val g = new Graph(size)
-    edges.foreach { case (from, to) => g.addEdge(from, to) }
-    g
+    require(0 <= n && n < nodeSize)
   }
 }

@@ -1,16 +1,16 @@
 package com.github.fedeoasi.graphs
 
-trait DiGraph extends Graph
+trait UGraph extends Graph
 
-object DiGraph {
-  def apply(size: Int, edges: (Int, Int)*): DiGraph = {
-    val g = new DiGraphImpl(size)
+object UGraph {
+  def apply(size: Int, edges: (Int, Int)*): UGraph = {
+    val g = new UGraphImpl(size)
     edges.foreach { case (from, to) => g.addEdge(from, to) }
     g
   }
 }
 
-class DiGraphImpl(val nodeSize: Int) extends DiGraph {
+private[graphs] class UGraphImpl(val nodeSize: Int) extends UGraph {
   require(nodeSize >= 0)
 
   private var edgeCount = 0
@@ -22,6 +22,7 @@ class DiGraphImpl(val nodeSize: Int) extends DiGraph {
     validateNode(to)
     if (!adjacencyLists(from).contains(to)) {
       adjacencyLists(from) ::= to
+      adjacencyLists(to) ::= from
       edgeCount += 1
     }
   }

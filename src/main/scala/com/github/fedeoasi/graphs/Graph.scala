@@ -27,3 +27,11 @@ class Graph(val size: Int) {
     require(0 <= n && n < size)
   }
 }
+
+object Graph {
+  def apply(size: Int, edges: (Int, Int)*): Graph = {
+    val g = new Graph(size)
+    edges.foreach { case (from, to) => g.addEdge(from, to) }
+    g
+  }
+}

@@ -2,7 +2,7 @@ package com.github.fedeoasi.graphs
 
 import org.scalatest.{Matchers, FunSpec}
 
-class GraphSpec extends FunSpec with Matchers {
+class UGraphSpec extends FunSpec with Matchers {
   it("creates a new graph that has no edges") {
     val g = UGraph(10)
     g.edgeSize shouldBe 0

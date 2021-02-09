@@ -35,3 +35,5 @@ pubsub/target
 *.iws
 .*.sw?
 .idea
+
+.bsp/sbt.json

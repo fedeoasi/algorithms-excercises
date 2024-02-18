@@ -2,12 +2,8 @@ package com.github.fedeoasi
 
 object LongestSubstringWithoutRepeatingCharacters {
   def substring[T](array: Array[T]): Option[Array[T]] = {
-    if (array.isEmpty) {
-      None
-    } else {
-      solution(array, None, 0, 0, Set.empty[T]).map { solution =>
-        array.slice(solution.start, solution.end)
-      }
+    solution(array, None, 0, 0, Set.empty[T]).map { solution =>
+      array.slice(solution.start, solution.end)
     }
   }
 
@@ -19,12 +15,14 @@ object LongestSubstringWithoutRepeatingCharacters {
     seen: Set[T]): Option[Solution] = {
 
     if (end >= array.length) {
-      if (!currentBest.exists(_.length > end - start)) Some(Solution(start, end)) else currentBest
+      val newSolution = Solution(start, end)
+      if (newSolution.nonEmpty && !currentBest.exists(_.length > newSolution.length)) Some(newSolution) else currentBest
     } else {
       val current = array(end)
       if (seen.contains(current)) {
         val newSeen = seen - array(start)
-        val newBest = if (!currentBest.exists(_.length > end - start)) Some(Solution(start, end)) else currentBest
+        val newSolution = Solution(start, end)
+        val newBest = if (!currentBest.exists(_.length > newSolution.length)) Some(newSolution) else currentBest
         solution(array, newBest, start + 1, start + 1, newSeen)
       } else {
         val newSeen = seen + current
@@ -33,7 +31,9 @@ object LongestSubstringWithoutRepeatingCharacters {
     }
   }
 
-  case class Solution(start: Int, end: Int) {
+  case class Solution(start: Int, end: Int) { // start is inclusive, end is not
     def length: Int = end - start
+
+    def nonEmpty: Boolean = length > 0
   }
 }
